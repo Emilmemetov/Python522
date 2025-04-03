@@ -41,7 +41,7 @@ from types import LambdaType
 #             break
 #         except ValueError:
 #             print("Ошибка: введите корректное целое число.")
-# c = res / i
+# # c = res / i
 # print(c)
 
 
@@ -119,27 +119,27 @@ from types import LambdaType
 #         print("Список пуст")
 #     if a == "4":
 #         break
-
-sotr = {}
-while True:
-    print("Меню:")
-    print("1. Добавьте нового сотрудника ")
-    print("2. Удалите сотрудника ")
-    print("3. Просмотреть список всех сотрудников ")
-    print("4. Выйти из программы ")
-    a = input("Выберите действие: ")
-    if a == "1":
-        employee = input("Добавьте сотрудника")
-        job_title = input("Добавьте должность")
-        sotr[employee] = job_title
-        print(sotr)
-    elif a == "2":
-        c = input("Введите сотрудника для удаления")
-        if employee in sotr:
-            del [sotr]
-            print("Сотрудник удалён!")
-        else:
-            print("Сотрудник не найден")
+#
+# sotr = {}
+# while True:
+#     print("Меню:")
+#     print("1. Добавьте нового сотрудника ")
+#     print("2. Удалите сотрудника ")
+#     print("3. Просмотреть список всех сотрудников ")
+#     print("4. Выйти из программы ")
+#     a = input("Выберите действие: ")
+#     if a == "1":
+#         employee = input("Добавьте сотрудника")
+#         job_title = input("Добавьте должность")
+#         sotr[employee] = job_title
+#         print(sotr)
+#     elif a == "2":
+#         c = input("Введите сотрудника для удаления")
+#         if employee in sotr:
+#             del [sotr]
+#             print("Сотрудник удалён!")
+#         else:
+#             print("Сотрудник не найден")
 
 
 

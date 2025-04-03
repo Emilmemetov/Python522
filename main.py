@@ -8,8 +8,7 @@
 #
 # print(id(name))
 # print(id(age))
-from typing import reveal_type
-
+import os.path
 
 # a = b = c = 10
 # a, b, c = 5, "Hello", 7.2
@@ -3456,15 +3455,15 @@ from typing import reveal_type
 # print(os.mkdir("folder")®)
 
 
-def kata_13_december(*args):
-    new = list()
-    for i in range(len(args)):
-        if args[i] % 2 != 0:
-            new.append(args[i])
-    return new
+# def kata_13_december(*args):
+#     new = list()
+#     for i in range(len(args)):
+#         if args[i] % 2 != 0:
+#             new.append(args[i])
+#     return new
 
 
-print(kata_13_december(1, 3, 5, 6, 8, 7, 2, 4, 6, 8, 10))
+# print(kata_13_december(1, 3, 5, 6, 8, 7, 2, 4, 6, 8, 10))
 # def kata_13_december(*args):
 #     new = list()
 #     for i in range(len(args)):
@@ -3475,6 +3474,96 @@ print(kata_13_december(1, 3, 5, 6, 8, 7, 2, 4, 6, 8, 10))
 #
 # print(kata_13_december(1, 3, 4, 2, 7))
 
-print("Данные на локальном репозитории!")
+# print("Данные на локальном репозитории!")
+#
+# print("Мое первое домашнее задание на Github!!!!!!")
 
-print("Мое первое домашнее задание на Github!!!!!!")
+# import os
+
+
+# dirs = ['Work/F1', "Work/F2/F21"]
+#
+# for d in dirs:
+#     os.makedirs(d)
+
+# files = {
+#     'Work': ['w.txt'],
+#     'Work/F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     "Work/F2/F21": ['f211.txt', 'f212.txt']
+# }
+
+# for key, value in files.items():
+#     for file in value:
+#         file_path = (os.path.join(key, file))
+#         open(file_path, "w").close()
+
+# file_with_text = ["Work/w.txt", "Work/F1/F12.txt"]
+#
+# for file in file_with_text:
+#     with open(file, "w",) as f:
+#         f.write(f"Некоторый текст для файла {file}")
+
+
+# def print_tree(topdown):
+#     print(f"Обход Work {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root, directopry, file in os.walk("Work", topdown):
+#         print(root)
+#         print(directopry)
+#         print(file)
+#     print("-" * 50)
+#
+#
+# print_tree(False)
+# print_tree(True)
+
+# path = "readme.md"
+# print(os.path.getsize(path))
+# print(os.path.getatime(path))
+# print(os.path.getmtime(path))
+# print(os.path.getctime(path))
+
+import os
+
+# file_path = "/Users/memetmemetov/Desktop/Python522/Work/w.txt"
+#
+#
+# if os.path.exists(file_path):
+#     directory, file = os.path.split(file_path)
+#     atime = os.path.getatime(file_path)
+#     print(f"{file} ({directory}) {atime}")
+# else:
+#     print(f"Файл {file_path} с таким именем не существует")
+
+# dir_name = "work"
+
+# objs = os.listdir(dir_name)
+# # print(objs)
+#
+# for i in objs:
+#     p = os.path.join(dir_name, i)
+#     # print(p)
+#     if os.path.isfile(p):
+#         print(f"{i} - file, {os.path.getsize(p)}")
+#     if os.path.isdir(p):
+#         print(f"{i} - dir, {os.path.getsize(p)}")
+
+# file_path = "work"
+
+
+def files1(root, folder):
+    for root, dirs, files in os.walk(root):
+        for file in files:
+            file_path = os.path.join(root, file)
+            # print(files_path)
+            file_size = os.path.getsize(file_path)
+            if file_size == 0:
+                os.renames(file_path, os.path.join(folder, file))
+                print("Файл", file, "перемещен из папки", root,  "в папку", folder)
+            else:
+                print(f"{file_path} - {file_size} bytes")
+
+
+files1("work", "work_empty_file")
+
+
+
