@@ -3523,6 +3523,8 @@ import os.path
 # print(os.path.getctime(path))
 
 import os
+from urllib.parse import parse_qsl
+
 
 # file_path = "/Users/memetmemetov/Desktop/Python522/Work/w.txt"
 #
@@ -3546,24 +3548,139 @@ import os
 #         print(f"{i} - file, {os.path.getsize(p)}")
 #     if os.path.isdir(p):
 #         print(f"{i} - dir, {os.path.getsize(p)}")
-
+#
 # file_path = "work"
+#
+#
+# def files1(root, folder):
+#     for root, dirs, files in os.walk(root):
+#         for file in files:
+#             file_path = os.path.join(root, file)
+#             # print(files_path)
+#             file_size = os.path.getsize(file_path)
+#             if file_size == 0:
+#                 os.renames(file_path, os.path.join(folder, file))
+#                 print("Файл", file, "перемещен из папки", root,  "в папку", folder)
+#             else:
+#                 print(f"{file_path} - {file_size} bytes")
+#
+#
+# files1("work", "work_empty_file")
 
 
-def files1(root, folder):
-    for root, dirs, files in os.walk(root):
-        for file in files:
-            file_path = os.path.join(root, file)
-            # print(files_path)
-            file_size = os.path.getsize(file_path)
-            if file_size == 0:
-                os.renames(file_path, os.path.join(folder, file))
-                print("Файл", file, "перемещен из папки", root,  "в папку", folder)
-            else:
-                print(f"{file_path} - {file_size} bytes")
+# class Point:
+#     x = 1
+#     y = 2
+#
+#     def set_coord(self):
+#         print("устанавливаем координаты")
+#
+#
+# p1 = Point()
+# p1.set_coord()
+# # p1 = Point()
+# # p1.x = 100
+# # p1.y = 50
+# # print(p1.x, p1.y)
+# # print(p1.__dict__)  # он показывает свойства именно которые в определенном экземпляре класса присвоены не те которые
+# # # находятся в классе
+# # p2 = Point()
+# # print(p2.x, p2.y)
 
 
-files1("work", "work_empty_file")
+class Human:
+    name = "name"
+    birthday = "00.00.0000"
+    phone = "00-00-00"
+    country = "country"
+    city = "city"
+    address = "street, house"
+
+    def print_info(self):
+        print(" Персональные данные ".center(40, "*"))
+        print(f"Имя:{self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\n"
+              f"Страна: {self.country} Город: {self.city}\nДомашний адрес: {self.address}")
+        print("=" * 40)
+
+    def input_info(self, first_name, birthday, phone, country, city, address):
+        self.name = first_name
+        self.birthday = birthday
+        self.phone = phone
+        self.country = country
+        self.city = city
+        self.address = address
+
+    def set_name(self, name, birthday):  # получили новое имя
+        self.name = name
+        self.birthday = birthday  # вернули новое имя
+
+    def get_name(self):
+        return self.name
 
 
+h1 = Human()
+h1.print_info()
+h1.input_info("Юля", "23.05.1996", '23-34-21', 'Россия', 'Москва',
+              'Богородицкая 9')
+h1.print_info()
+h1.set_name('Олег', '24.09.2003')
+h1.print_info()
+print(h1.get_name())
 
+
+# class Person:
+#     count = 0
+#
+#     def __init__(self, name, surname):
+#         self.name = name
+#         self.surname = surname
+#         self.count += 1
+#
+#     def print_info(self):
+#         print('Данные сотрудника:', self.name, self.surname)
+#
+#
+# p1 = Person("Резник", 'Виктор')
+# p1.print_info()
+#
+# p2 = Person("Долгих", 'Анна')
+# p2.print_info()
+#
+# print(p1.count)
+# print(Person.count)
+
+
+class Robot:
+    k = 0
+
+    def __init__(self, name):
+        self.name = name
+        print("Инициальзация робота:", self.name)
+        Robot.k += 1
+
+    def __del__(self):
+        print(self.name, "Выключается")
+        Robot.k -= 1
+        # print("Работающих роботов:", Robot.k)
+
+        if Robot.k == 0:
+            print(self.name, 'Был последним')
+        else:
+            print('Работающих роботов:', Robot.k)
+
+    #
+    def say_hay(self):
+        print("Приветствую! Меня зовут:", self.name)
+
+
+droid1 = Robot("R2-D2")
+droid1.say_hay()
+print("Численность роботов:", Robot.k)
+
+droid2 = Robot("C-3PO")
+droid2.say_hay()
+print("Численность роботов:", Robot.k, "\n")
+
+print("Здесь роботы могут проделать какую-то работу", "\n")
+print("Роюоты закончили свою работу, давайте их выключим", "\n")
+print("Численность роботов:", Robot.k)
