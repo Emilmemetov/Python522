@@ -3588,44 +3588,44 @@ from urllib.parse import parse_qsl
 # # print(p2.x, p2.y)
 
 
-class Human:
-    name = "name"
-    birthday = "00.00.0000"
-    phone = "00-00-00"
-    country = "country"
-    city = "city"
-    address = "street, house"
-
-    def print_info(self):
-        print(" Персональные данные ".center(40, "*"))
-        print(f"Имя:{self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\n"
-              f"Страна: {self.country} Город: {self.city}\nДомашний адрес: {self.address}")
-        print("=" * 40)
-
-    def input_info(self, first_name, birthday, phone, country, city, address):
-        self.name = first_name
-        self.birthday = birthday
-        self.phone = phone
-        self.country = country
-        self.city = city
-        self.address = address
-
-    def set_name(self, name, birthday):  # получили новое имя
-        self.name = name
-        self.birthday = birthday  # вернули новое имя
-
-    def get_name(self):
-        return self.name
-
-
-h1 = Human()
-h1.print_info()
-h1.input_info("Юля", "23.05.1996", '23-34-21', 'Россия', 'Москва',
-              'Богородицкая 9')
-h1.print_info()
-h1.set_name('Олег', '24.09.2003')
-h1.print_info()
-print(h1.get_name())
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, "*"))
+#         print(f"Имя:{self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\n"
+#               f"Страна: {self.country} Город: {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.name = first_name
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.country = country
+#         self.city = city
+#         self.address = address
+#
+#     def set_name(self, name, birthday):  # получили новое имя
+#         self.name = name
+#         self.birthday = birthday  # вернули новое имя
+#
+#     def get_name(self):
+#         return self.name
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1996", '23-34-21', 'Россия', 'Москва',
+#               'Богородицкая 9')
+# h1.print_info()
+# h1.set_name('Олег', '24.09.2003')
+# h1.print_info()
+# print(h1.get_name())
 
 
 # class Person:
@@ -3650,37 +3650,212 @@ print(h1.get_name())
 # print(Person.count)
 
 
-class Robot:
-    k = 0
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print("Инициальзация робота:", self.name)
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, "Выключается")
+#         Robot.k -= 1
+#         # print("Работающих роботов:", Robot.k)
+#
+#         if Robot.k == 0:
+#             print(self.name, 'Был последним')
+#         else:
+#             print('Работающих роботов:', Robot.k)
+#
+#     #
+#     def say_hay(self):
+#         print("Приветствую! Меня зовут:", self.name)
+#
+#
+# droid1 = Robot("R2-D2")
+# droid1.say_hay()
+# print("Численность роботов:", Robot.k)
+#
+# droid2 = Robot("C-3PO")
+# droid2.say_hay()
+# print("Численность роботов:", Robot.k, "\n")
+#
+# print("Здесь роботы могут проделать какую-то работу", "\n")
+# print("Роюоты закончили свою работу, давайте их выключим", "\n")
+# print("Численность роботов:", Robot.k)
 
-    def __init__(self, name):
-        self.name = name
-        print("Инициальзация робота:", self.name)
-        Robot.k += 1
 
-    def __del__(self):
-        print(self.name, "Выключается")
-        Robot.k -= 1
-        # print("Работающих роботов:", Robot.k)
+# import math
+#
+#
+# class Rectangle:
+#     def __init__(self, length=1, width=1):
+#         self.__length = length
+#         self.__width = width
+#
+#     def __check_value(c):
+#         if isinstance(c, int) or isinstance(c, float):
+#             return True
+#         return False
+#
+#     def get_width(self):
+#         return self.__width
+#
+#     def get_length(self):
+#         return self.__length
+#
+#     def set_width(self, width):
+#         if Rectangle.__check_value(width):
+#             self.__width = width
+#
+#     def set_length(self, length):
+#         if Rectangle.__check_value(length):
+#             self.__length = length
+#
+#     def get_area(self):
+#         return self.__width * self.__length
+#
+#     def get_perimeter(self):
+#         return 2 * (self.__width + self.__length)
+#
+#     def get_gipotenuza(self):
+#         return round(math.sqrt(self.__length ** 2 + self.__width ** 2), 2)
+#
+#     def get_draw(self):
+#         print(("*" * self.__width + "\n") * self.__length)
+#
+#
+# r1 = Rectangle()
+# r1.set_width(9)
+# r1.set_length(3)
+# print("Длинна прямоугольника:", r1.get_length())
+# print("Ширина прямоугольника:", r1.get_width())
+# print("Площадь пряугольника:", r1.get_area())
+# print("Периметр прямоугольника:", r1.get_perimeter())
+# print("Гипотенуза треугольника:", r1.get_gipotenuza())
+# r1.get_draw()
 
-        if Robot.k == 0:
-            print(self.name, 'Был последним')
-        else:
-            print('Работающих роботов:', Robot.k)
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __check_value(c):
+#         if isinstance(c, int) or isinstance(c, float):
+#             return True
+#         return False
+#
+#     @property
+#     def x(self):
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, x):
+#         if Point.__check_value(x):
+#             self.__x = x
+#         else:
+#             print("Координат x должен быть числом")
+#
+#     @x.deleter
+#     def x(self):
+#         print("Удаление свойства")
+#         del self.__x
+#
+#     # coordX = property(__get_goord_x, __set_coord_x,del__coord_x)
+#
+#
+# p1 = Point(5, 10)
+# # p1.coordX = 23.5
+# # print(p1.coordX)
+# # del p1.coordX
+# # print(p1.__dict__)
+# p1.x = 50
+# print(p1.x)
+# del p1.x
+# print(p1.__dict__)
+#
+# class Person:
+#     def __init__(self, name, old):
+#         self.__name = name
+#         self.__old = old
+#
+#     @property
+#     def name(self):
+#         return self.__name
+#
+#     @name.setter
+#     def name(self, name):
+#         self.__name = name
+#
+#     @name.deleter
+#     def name(self):
+#         del self.__name
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, old):
+#         self.__old = old
+#
+#     @old.deleter
+#     def old(self):
+#         del self.__old
+#
+#
+# p1 = Person("Emil", 22)
+# print(p1.__dict__)
+# p1.name = "Memet"
+# print(p1.name)
+# p1.old = 53
+# print(p1.old)
+# print(p1.__dict__)
+# del p1.name
+# print(p1.__dict__)
 
-    #
-    def say_hay(self):
-        print("Приветствую! Меня зовут:", self.name)
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#         Point.__count += 1
+#
+#     @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+# print(Point.get_count())
+
+# def inc(x):
+#     return x + 1
 
 
-droid1 = Robot("R2-D2")
-droid1.say_hay()
-print("Численность роботов:", Robot.k)
+# def dec(x):
+#     return x - 1
+#
+#
+# print(inc(10), dec(10))
+#
+#
+# class Change:
+#
+#     @staticmethod
+#     def inc(x):
+#         return x + 1
+#
+#     @staticmethod
+#     def dec(x):
+#         return x - 1
+#
+#
+# print(Change.inc(10), Change.dec(10))
 
-droid2 = Robot("C-3PO")
-droid2.say_hay()
-print("Численность роботов:", Robot.k, "\n")
 
-print("Здесь роботы могут проделать какую-то работу", "\n")
-print("Роюоты закончили свою работу, давайте их выключим", "\n")
-print("Численность роботов:", Robot.k)
