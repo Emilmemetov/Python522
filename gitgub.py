@@ -115,28 +115,3 @@ print(p1.kg)
 p1.kg = "sd"
 # print(p1.kg)
 
-
-
-
-
-
-# class WeightConverter:
-#     def __init__(self, kg):
-#         if isinstance(kg, (int, float)):
-#             self.kg = kg
-#         else:
-#             print("Килограммы задаются только числами!")
-#             self.kg = None
-#
-#     def to_pounds(self):
-#         if self.kg is not None:
-#             return self.kg * 2.20462
-#         return None
-#
-#     def display_result(self):
-#         if self.kg is not None:
-#             print(f"{self.kg} кг => {self.to_pounds():.2f} фунтов")
-#
-#
-# p1 = WeightConverter(5)
-# p1.display_result()
