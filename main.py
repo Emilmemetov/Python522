@@ -3611,8 +3611,8 @@ from urllib.parse import parse_qsl
 #         self.address = address
 #
 #     def set_name(self, name, birthday):  # получили новое имя
-#         self.name = name
-#         self.birthday = birthday  # вернули новое имя
+#         self.name = name   # вернули новое имя
+#         self.birthday = birthday
 #
 #     def get_name(self):
 #         return self.name
@@ -3775,45 +3775,45 @@ from urllib.parse import parse_qsl
 # del p1.x
 # print(p1.__dict__)
 #
-# class Person:
-#     def __init__(self, name, old):
-#         self.__name = name
-#         self.__old = old
-#
-#     @property
-#     def name(self):
-#         return self.__name
-#
-#     @name.setter
-#     def name(self, name):
-#         self.__name = name
-#
-#     @name.deleter
-#     def name(self):
-#         del self.__name
-#
-#     @property
-#     def old(self):
-#         return self.__old
-#
-#     @old.setter
-#     def old(self, old):
-#         self.__old = old
-#
-#     @old.deleter
-#     def old(self):
-#         del self.__old
-#
-#
-# p1 = Person("Emil", 22)
-# print(p1.__dict__)
-# p1.name = "Memet"
-# print(p1.name)
-# p1.old = 53
-# print(p1.old)
-# print(p1.__dict__)
-# del p1.name
-# print(p1.__dict__)
+class Person:
+    def __init__(self, name, old):
+        self.__name = name
+        self.__old = old
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name):
+        self.__name = name
+
+    @name.deleter
+    def name(self):
+        del self.__name
+
+    @property
+    def old(self):
+        return self.__old
+
+    @old.setter
+    def old(self, old):
+        self.__old = old
+
+    @old.deleter
+    def old(self):
+        del self.__old
+
+
+p1 = Person("Emil", 22)
+print(p1.__dict__)
+p1.name = "Memet"
+print(p1.name)
+p1.old = 53
+print(p1.old)
+print(p1.__dict__)
+del p1.name
+print(p1.__dict__)
 
 
 # class Point:
@@ -3918,7 +3918,7 @@ class Account:
         print("*" * 50)
         print(f"счет #{self.num} принадлежащий {self.surname} был закрыт")
 
-    @classmethod
+    @classmethod   # чем-то похож на сеттер
     def set_eur_rate(cls, rate):
         cls.rate_eur = rate
 
@@ -3926,7 +3926,8 @@ class Account:
     def set_usd_rate(cls, rate):
         cls.rate_usd = rate
 
-    @staticmethod
+    @staticmethod   # получаем сумму рублей в валюте квро или доллар, ниже в методах мы к этому методу
+    # обращаеимя чтоб он посчитал все по курсу
     def convert(value, rate):
         return value * rate
 
@@ -3992,7 +3993,7 @@ print()
 acc.wirt_money(3000)
 print()
 acc.add_money(5000)
-acc.wirt_money(3000)
+acc.wirt_money(7000)
 print()
 
 

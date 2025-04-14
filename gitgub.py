@@ -1,6 +1,9 @@
 # print("Мое первое домашнее задание на Github!!!!!!")
 #
 # print("Мое первое домашнее задание на Github!!!!!!")
+from struct import pack_into
+from urllib.response import addinfourl
+
 
 # import random
 #
@@ -88,30 +91,172 @@
 # if __name__ == "__main__":
 #     guess_the_number()
 #
-class Convert:
+# class Convert:
+#
+#     def __init__(self, kg=12):
+#         self.__kg = kg
+#
+#     def __check_value(c):
+#         if isinstance(c, int) or isinstance(c, float):
+#             return True
+#         return False
+#
+#     @property
+#     def kg(self):
+#         return f"{self.__kg} кг => {round(self.__kg * 2.2, 2)} фунтов"
+#
+#     @kg.setter
+#     def kg(self, kg):
+#         if Convert.__check_value(kg):
+#             self.__kg = kg
+#         else:
+#             print("Килограми задаются только числами")
+#
+#
+# p1 = Convert(6)
+# print(p1.kg)
+# p1.kg = 5
+# print(p1.kg)
 
-    def __init__(self, kg=12):
-        self.__kg = kg
 
-    def __check_value(c):
-        if isinstance(c, int) or isinstance(c, float):
-            return True
-        return False
+# РЕШЕНИЕ ЗАДАЧИ С ДЕКОРАТОРАМИ!
+class Account:
+    rate_usd = 0.013
+    rate_eur = 0.011
+    suffix = "RUB"
+    suffix_usd = "USD"
+    suffix_eur = "EUR"
+
+    def __init__(self, num, surname, percent, value):
+        self.__num = num
+        self.__surname = surname
+        self.__percent = percent
+        self.__value = value
+        print(f"Счет # {self.__num} принадлежащий {self.__surname} был открыт.")
+        print("*" * 50)
+
+    def __del__(self):
+        print("*" * 50)
+        print(f"счет #{self.__num} принадлежащий {self.__surname} был закрыт")
 
     @property
-    def kg(self):
-        return f"{self.__kg} кг => {round(self.__kg * 2.2, 2)} фунтов"
+    def num(self):
+        return self.__num
 
-    @kg.setter
-    def kg(self, kg):
-        if Convert.__check_value(kg):
-            self.__kg = kg
+    @num.setter
+    def num(self, num):
+        if isinstance(num, int):
+            self.__num = num
         else:
-            print("Килограми задаются только числами")
+            print("Ошибка, номер счета не может быть строкой")
+
+    @property
+    def surname(self):
+        return self.__surname
+
+    @surname.setter
+    def surname(self, surname):
+        if isinstance(surname, str):
+            self.__surname = surname
+        else:
+            print("Фамилия должна быть строкой")
+
+    @property
+    def percent(self):
+        return self.__percent
+
+    @percent.setter
+    def percent(self, percent):
+        self.__percent = percent
+
+    @property
+    def value(self):
+        return self.__value
+
+    @value.setter
+    def value(self, value):
+        if isinstance(value, (int, float)) and value >= 0:
+            self.__value = value
+        else:
+            print("Ошибка! Баланс должен быть неотрицательным числом.")
+
+    @classmethod
+    def set_eur_rate(cls, rate):
+        cls.rate_eur = rate
+
+    @classmethod
+    def set_usd_rate(cls, rate):
+        cls.rate_usd = rate
+
+    @staticmethod
+    def convert(value, rate):
+        return value * rate
+
+    def convert_two_usd(self):
+        usd_val = Account.convert(self.__value, Account.rate_usd)
+        print(f"Cостояние счета:{usd_val} {Account.suffix_usd}")
+
+    def convert_two_eur(self):
+        eur_val = Account.convert(self.__value, Account.rate_eur)
+        print(f"Состоянии счета:{eur_val} {Account.suffix_eur}")
+
+    def print_balance(self):
+        print(f"Текущий баланс: {self.__value}{Account.suffix} ")
+
+    def print_info(self):
+        print("Информация о счете:")
+        print("-" * 20)
+        print(f"# {self.__num}")
+        print(f"Владелец:{self.__surname}")
+        self.print_balance()
+        print(f"Проценты: {self.__percent:.0%}")
+        print("-" * 20)
+
+    # def edit_owner(self, surname):
+    #     self.__surname = surname
+
+    def add_percens(self):
+        self.__value += self.__value * self.__percent
+        print("Проценты были успешно начислены")
+        self.print_balance()
+
+    def wirt_money(self, val):
+        if val > self.__value:
+            print(f"К сожалению у вас нет {val} {Account.suffix}")
+        else:
+            self.__value -= val
+            print(f"{val}{Account.suffix} было успешно снято!")
+        self.print_balance()
+
+    def add_money(self, val):
+        self.__value += val
+        print(f"{val} {Account.suffix} было успешно добавлено!")
+        self.print_balance()
 
 
-p1 = Convert(6)
-print(p1.kg)
-p1.kg = "sd"
-# print(p1.kg)
+acc = Account("12345", "Долгих", 0.03, 1000)
+# acc.print_balance()
+acc.print_info()
+acc.convert_two_usd()
+acc.convert_two_eur()
+
+Account.set_usd_rate(2)
+Account.set_eur_rate(3)
+acc.convert_two_usd()
+acc.convert_two_eur()
+print()
+acc.print_info()
+print()
+acc.add_percens()
+acc.wirt_money(100)
+print()
+acc.wirt_money(3000)
+print()
+acc.add_money(5000)
+acc.wirt_money(7000)
+print()
+
+
+
+
 
