@@ -256,50 +256,100 @@ from urllib.response import addinfourl
 # acc.wirt_money(7000)
 # print()
 
-class Pair:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
+# class Pair:
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#
+#     def a_setter(self, new_a):
+#         self.a = new_a
+#
+#     def b_setter(self, new_b):
+#         self.b = new_b
+#
+#     def sum_number(self):
+#         res = self.a + self.b
+#         print(f"Сумма:", res)
+#
+#     def pr_number(self):
+#         res = self.a * self.b
+#         print(f"Произведение:", res)
+#
+#
+# class RightTriangle(Pair):
+#     def __init__(self, a, b):
+#         super().__init__(a, b)
+#
+#     def gipotenuza(self):
+#         res = round((self.a ** 2 + self.b ** 2) ** 0.5, 2)
+#         print("Гипотенуза AB: ", res)
+#
+#     def triange(self):
+#         result = 0.5 * self.a * self.b
+#         print("Площадь AB: ", result)
+#
+#
+# p2 = RightTriangle(5, 8)
+# p2.gipotenuza()
+# p2.triange()
+# print()
+# p2.sum_number()
+# p2.pr_number()
+# print()
+# p3 = RightTriangle(18, 15)
+# p3.gipotenuza()
+# p4 = RightTriangle(10, 20)
+# p4.gipotenuza()
+# p4.sum_number()
+# p4.pr_number()
+# p4.triange()
 
-    def a_setter(self, new_a):
-        self.a = new_a
 
-    def b_setter(self, new_b):
-        self.b = new_b
-
-    def sum_number(self):
-        res = self.a + self.b
-        print(f"Сумма:", res)
-
-    def pr_number(self):
-        res = self.a * self.b
-        print(f"Произведение:", res)
+class Human:
+    def __init__(self, surname, name, age):
+        self.surname = surname
+        self.name = name
+        self.age = age
 
 
-class RightTriangle(Pair):
-    def __init__(self, a, b):
-        super().__init__(a, b)
+class Student(Human):
+    def __init__(self, surname, name, age, group, sr_bal):
+        super().__init__(surname, name, age)
+        self.group = group
+        self.sr_bal = sr_bal
 
-    def gipotenuza(self):
-        res = round((self.a ** 2 + self.b ** 2) ** 0.5, 2)
-        print("Гипотенуза AB: ", res)
-
-    def triange(self):
-        result = 0.5 * self.a * self.b
-        print("Площадь AB: ", result)
+    def print_info(self):
+        print(self.surname, self.name, self.age, self.group, self.sr_bal)
 
 
-p2 = RightTriangle(5, 8)
-p2.gipotenuza()
-p2.triange()
-print()
-p2.sum_number()
-p2.pr_number()
-print()
-p3 = RightTriangle(18, 15)
-p3.gipotenuza()
-p4 = RightTriangle(10, 20)
-p4.gipotenuza()
-p4.sum_number()
-p4.pr_number()
-p4.triange()
+class Teacher(Human):
+    def __init__(self, surname, name, age, school_subject, grade):
+        super().__init__(surname, name, age, )
+        self.school_subject = school_subject
+        self.grade = grade
+
+    def print_info(self):
+        print(self.surname, self.name, self.age, self.school_subject, self.grade)
+
+
+class Graduete(Student):
+    def __init__(self, surname, name, age, group, sr_bal, thesis):
+        super().__init__(surname, name, age, group, sr_bal)
+        self.thesis = thesis
+
+    def print_info(self):
+        print(self.surname, self.name, self.age, self.group, self.sr_bal, self.thesis)
+
+
+p1 = Student("Memetov", "Emil", 21, "Python 522", 5)
+p1.print_info()
+p1 = Student("Маркин", "Андрей", 15, "РДПО 001", 4)
+p1.print_info()
+p2 = Graduete("Osmanov", "Aziz", 22, "PG_0012", 6, "Защита персональных данных")
+p2.print_info()
+p3 = Teacher("Даньшин", "Даниил", 28, "Астрофизика", 110)
+p3.print_info()
+p1 = Student("Башкиров", "Алексей", 19, "Python_011", 5)
+p1.print_info()
+p2 = Graduete("Загидуллин", "Линар", 32, "РДПО 7654", 50, "Разработка приложений")
+p2.print_info()

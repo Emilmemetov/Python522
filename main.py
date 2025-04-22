@@ -3525,7 +3525,6 @@ import os.path
 import os
 from urllib.parse import parse_qsl
 
-
 # file_path = "/Users/memetmemetov/Desktop/Python522/Work/w.txt"
 #
 #
@@ -4183,41 +4182,245 @@ from urllib.parse import parse_qsl
 # print(rect.get_area())
 
 
-class Rect:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         self.fon = background
+#         super().__init__(width, height)
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     def __init__(self, width, height, r_width, r_type, r_color):
+#         super().__init__(width, height)
+#         self.r_width = r_width
+#         self.r_type = r_type
+#         self.r_color = r_color
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print(f"Ширина рамки: {self.r_width}\nТип рамки: {self.r_type}\n"
+#               f"Цвет рамки: {self.r_color}")
+#
+#
+# print(Rect.__dict__)
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# chape2 = RectBorder(600, 300, "1px", "solid", "blue")
+# chape2.show_rect()
 
-    def show_rect(self):
-        print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+
+# class Vector(list):
+#     def __str__(self):
+#         return " ".join(map(str, self))
+#
+#
+# v = Vector([1, 2, 3])
+# print(v)
+# print(type(v))
+
+# Перегрузка методотов
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#     def set_coord(self, x=None, y=None):
+#         if y is None:
+#             self.x = x
+#         elif x is None:
+#             self.y = y
+#         else:
+#             self.x = x
+#             self.y = y
+#
+#
+# p1 = Point(5, 7)
+# print(p1.__dict__)
+# p1.set_coord(20, 30)
+# print(p1.__dict__)
+# p1.set_coord(50)
+# print(p1.__dict__)
+# p1.set_coord(y=100)
+# print(p1.__dict__)
+
+#  АБСТРАКТНЫЕ МЕТОДЫ
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self) -> str:
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self._width = width
+#
+#     def draw(self):
+#         raise NotImplementedError("В дочернем классе должен быть определен метод draw()")
+#
+#
+# class Line(Prop):
+#
+#     def draw(self):
+#         print(f"Это рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# class Ellipse(Prop):
+#     ...
+#
+#
+# # def draw(self):
+# #     print(f"Это рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# class Rect(Prop):
+#
+#     def draw(self):
+#         print(f"Рисование элипса  {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# figs = list()
+# figs.append(Line(Point(0, 0), Point(10, 10)))
+# figs.append(Line(Point(10, 20), Point(20, 20)))
+# figs.append(Rect(Point(50, 50), Point(100, 100)))
+# figs.append(Ellipse(Point(70, 70), Point(90, 90)))
+#
+# for f in figs:
+#     f.draw()
 
 
-class RectFon(Rect):
-    def __init__(self, width, height, background):
-        self.fon = background
-        super().__init__(width, height)
-
-    def show_rect(self):
-        super().show_rect()
-        print("Фон:", self.fon)
+# from abc import ABC, abstractmethod
 
 
-class RectBorder(Rect):
-    def __init__(self, width, height, r_width, r_type, r_color):
-        super().__init__(width, height)
-        self.r_width = r_width
-        self.r_type = r_type
-        self.r_color = r_color
+#
+#
+# class Chess(ABC):
+#     def draw(self):
+#         print("Нарисовал шахматную доску")
+#
+#     @abstractmethod
+#     def move(self):
+#         print("Метод move в базовом классе")
+#
+#
+# class Queen(Chess):
+#     def move(self):
+#         super().move()
+#         print("Ферзь перемещен на е2е4")
+#
+#
+# q = Chess()
+# q = Queen()
+# q.draw()
+# q.move()
 
-    def show_rect(self):
-        super().show_rect()
-        print(f"Ширина рамки: {self.r_width}\nТип рамки: {self.r_type}\n"
-              f"Цвет рамки: {self.r_color}")
+# from math import pi
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             if length is None:
+#                 self.width = self.length = width
+#             else:
+#                 self.width = width
+#                 self.length = length
+#         else:
+#             self.radius = radius
+#
+#     def calc_area(self):
+#         raise NotImplementedError("В дочернем классе должен быть определен метод calc_area()")
+#
+#
+# class SqTable(Table):
+#     def calc_area(self):
+#         return self.width * self.length
+#
+#
+# class RoundTable(Table):
+#     def calc_area(self):
+#         return round(pi * self.radius ** 2, 2)
+#
+#
+# t = SqTable(20, 10)
+# print(t.__dict__)
+# print(t.calc_area())
+#
+# t2 = SqTable(20)
+# print(t2.__dict__)
+# print(t2.calc_area())
+#
+# t1 = RoundTable(radius=20)
+# print(t1.__dict__)
+# print(t1.calc_area())
 
 
-print(Rect.__dict__)
-shape1 = RectFon(400, 200, "yellow")
-shape1.show_rect()
-print()
-chape2 = RectBorder(600, 300, "1px", "solid", "blue")
-chape2.show_rect()
+# from abc import ABC, abstractmethod
+#
+#
+# class Currency(ABC):
+#     def __init__(self, value):
+#         self.value = value
+#
+#     @abstractmethod
+#     def convert_to_rub(self):
+#         pass
+#
+#     def print_value(self):
+#         print(self.value, end=" ")
+#
+#
+# class Dollar(Currency):
+#     rate_to_rub = 74.16
+#     suffix = "USD"
+#
+#     def convert_to_rub(self):
+#         return self.value * Dollar.rate_to_rub
+#
+#     def print_value(self):
+#         super().print_value()
+#         print(Dollar.suffix, end="")
+#
+#
+# class Euro(Currency):
+#     rate_to_rub = 90.14
+#     suffix = "EUR"
+#
+#     def convert_to_rub(self):
+#         return self.value * Dollar.rate_to_rub
+#
+#     def print_value(self):
+#         super().print_value()
+#         print(Euro.suffix, end="")
+#
+#
+# d = {Dollar(5), Dollar(10), Dollar(50), Dollar(100)}
+# e = {Euro(5), Euro(10), Euro(50), Euro(100)}
+#
+# for elem in d:
+#     elem.print_value()
+#     print(f" = {elem.convert_to_rub():.2f} RUB")
+# print("*" * 50)
+# for elem in e:
+#     elem.print_value()
+#     print(f" = {elem.convert_to_rub():.2f} RUB")
