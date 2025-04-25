@@ -3523,7 +3523,9 @@ import os.path
 # print(os.path.getctime(path))
 
 import os
+from tkinter.font import names
 from urllib.parse import parse_qsl
+
 
 # file_path = "/Users/memetmemetov/Desktop/Python522/Work/w.txt"
 #
@@ -4424,3 +4426,156 @@ from urllib.parse import parse_qsl
 # for elem in e:
 #     elem.print_value()
 #     print(f" = {elem.convert_to_rub():.2f} RUB")
+
+# вложенные классы
+
+# class MyOuter:
+#     age = 18
+#
+#     def __init__(self, name):
+#         self.name = name
+#
+#     @staticmethod
+#     def out_static():
+#         print("метод внешнего класса")
+#
+#     class MyInner:
+#         def __init__(self, inner_name):
+#             self.inner_name = inner_name
+#
+#         def inner_method(self):
+#             print("метод вложенного класса")
+#             MyOuter.out_static()
+#
+#
+# out = MyOuter("внешний")
+# inner = out.MyInner("внутренний")
+# print(out.name)
+# print(inner.inner_name)
+# inner.inner_method()
+
+
+# class Color:
+#     def __init__(self):
+#         self.name = "Green"
+#         self.lg = self.LightGreen()  # вызов внутреннего класса, создали экземпляр внутреннего класса в общем
+#
+#     def show(self):
+#         print("Name:", self.name)
+#
+#     class LightGreen:
+#         def __init__(self):
+#             self.name = "LightGreen"
+#
+#         def display(self):
+#             print("Name:", self.name)
+#
+#
+# outer = Color()
+# outer.show()
+# print(outer.name)
+# outer.lg.display()
+
+
+# class Emplay:
+#     def __init__(self):
+#         self.name = "Emplay"
+#         self.intern = self.Intern()
+#         self.head = self.Head()
+#
+#     def show(self):
+#         print("Name:", self.name)
+#
+#     class Intern:
+#         def __init__(self):
+#             self.name = "Дмитрий"
+#
+#         def display(self):
+#             print("Name:", self.name)
+#
+#     class Head:
+#         def __init__(self):
+#             self.name = "Александр"
+#
+#         def display(self):
+#             print("Name:", self.name)
+#
+#
+# outer = Emplay()
+# outer.show()
+#
+# d1 = outer.intern
+# d2 = outer.head
+# d1.display()
+# d2.display()
+
+# class Outer:
+#     def __init__(self):
+#         self.inner = self.Inner()
+#
+#     def show(self):
+#         print("Наружный класс!")
+#
+#     class Inner:
+#         def __init__(self):
+#             self.inner_inner = self.InnerClass()
+#
+#         def show(self):
+#             print("Промежуточный класс!")
+#
+#         class InnerClass:
+#
+#             def show(self):
+#                 print("Вложенный класс!")
+#
+#
+# outer = Outer()
+# outer.show()
+#
+# inner1 = outer.inner
+# inner1.show()
+#
+# inner2 = outer.inner.inner_inner
+# inner2.show()
+
+# class Computer:
+#     def __init__(self):
+#         self.name = "PC001"
+#         self.os = self.OS()
+#         self.cpu = self.CPU()
+#
+#     class OS:
+#         def system(self):
+#             return "Windows 10"
+#
+#     class CPU:
+#         def make(self):
+#             return "Intel"
+#
+#         def model(self):
+#             return "Core i9"
+#
+#
+# comp = Computer()
+# my_os = comp.os
+# my_cpu = comp.cpu
+# print(comp.name)
+# print(my_os.system())
+# print(my_cpu.make())
+# print(my_cpu.model())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -305,51 +305,80 @@ from urllib.response import addinfourl
 # p4.triange()
 
 
-class Human:
-    def __init__(self, surname, name, age):
-        self.surname = surname
+# class Human:
+#     def __init__(self, surname, name, age):
+#         self.surname = surname
+#         self.name = name
+#         self.age = age
+#
+#
+# class Student(Human):
+#     def __init__(self, surname, name, age, group, sr_bal):
+#         super().__init__(surname, name, age)
+#         self.group = group
+#         self.sr_bal = sr_bal
+#
+#     def print_info(self):
+#         print(self.surname, self.name, self.age, self.group, self.sr_bal)
+#
+#
+# class Teacher(Human):
+#     def __init__(self, surname, name, age, school_subject, grade):
+#         super().__init__(surname, name, age, )
+#         self.school_subject = school_subject
+#         self.grade = grade
+#
+#     def print_info(self):
+#         print(self.surname, self.name, self.age, self.school_subject, self.grade)
+#
+#
+# class Graduete(Student):
+#     def __init__(self, surname, name, age, group, sr_bal, thesis):
+#         super().__init__(surname, name, age, group, sr_bal)
+#         self.thesis = thesis
+#
+#     def print_info(self):
+#         print(self.surname, self.name, self.age, self.group, self.sr_bal, self.thesis)
+#
+#
+# p1 = Student("Memetov", "Emil", 21, "Python 522", 5)
+# p1.print_info()
+# p1 = Student("Маркин", "Андрей", 15, "РДПО 001", 4)
+# p1.print_info()
+# p2 = Graduete("Osmanov", "Aziz", 22, "PG_0012", 6, "Защита персональных данных")
+# p2.print_info()
+# p3 = Teacher("Даньшин", "Даниил", 28, "Астрофизика", 110)
+# p3.print_info()
+# p1 = Student("Башкиров", "Алексей", 19, "Python_011", 5)
+# p1.print_info()
+# p2 = Graduete("Загидуллин", "Линар", 32, "РДПО 7654", 50, "Разработка приложений")
+# p2.print_info()
+
+
+class Student:
+    def __init__(self, name, laptop, model, memory):
         self.name = name
-        self.age = age
-
-
-class Student(Human):
-    def __init__(self, surname, name, age, group, sr_bal):
-        super().__init__(surname, name, age)
-        self.group = group
-        self.sr_bal = sr_bal
+        self.show = self.Show(laptop, model, memory)
 
     def print_info(self):
-        print(self.surname, self.name, self.age, self.group, self.sr_bal)
+        print(self.name, "=>", end=" ")
+        self.show.print_info()
+
+    class Show:
+        def __init__(self, laptop, model, memory):
+            self.laptop = laptop
+            self.model = model
+            self.memory = memory
+
+        def print_info(self):
+            print(self.laptop, self.model, self.memory)
 
 
-class Teacher(Human):
-    def __init__(self, surname, name, age, school_subject, grade):
-        super().__init__(surname, name, age, )
-        self.school_subject = school_subject
-        self.grade = grade
-
-    def print_info(self):
-        print(self.surname, self.name, self.age, self.school_subject, self.grade)
+result = Student("Vladimir", 'Apple', 'Macbook', '256GB')
+result.print_info()
+result2 = Student("Daniel", 'Macbook', "Air", "512GB")
+result2.print_info()
 
 
-class Graduete(Student):
-    def __init__(self, surname, name, age, group, sr_bal, thesis):
-        super().__init__(surname, name, age, group, sr_bal)
-        self.thesis = thesis
-
-    def print_info(self):
-        print(self.surname, self.name, self.age, self.group, self.sr_bal, self.thesis)
 
 
-p1 = Student("Memetov", "Emil", 21, "Python 522", 5)
-p1.print_info()
-p1 = Student("Маркин", "Андрей", 15, "РДПО 001", 4)
-p1.print_info()
-p2 = Graduete("Osmanov", "Aziz", 22, "PG_0012", 6, "Защита персональных данных")
-p2.print_info()
-p3 = Teacher("Даньшин", "Даниил", 28, "Астрофизика", 110)
-p3.print_info()
-p1 = Student("Башкиров", "Алексей", 19, "Python_011", 5)
-p1.print_info()
-p2 = Graduete("Загидуллин", "Линар", 32, "РДПО 7654", 50, "Разработка приложений")
-p2.print_info()
